@@ -39,6 +39,6 @@ app.use('/images', express.static('assets/images'));
 const routes = require('./routes.js');
 app.use('/', routes);
 
-const port = (process.env.PORT || 4000)
+const port = (process.env.PORT || 4040)
 
 app.listen(port,() => console.log(`Listening on ${port}`));

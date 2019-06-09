@@ -13,8 +13,8 @@ const BookSchema = new mongoose.Schema({
     },
     status: {
         type: String,
-        enum: ['Yes', 'Not'],
-        default: 'Have'
+        enum: ['YES', 'NOT'],
+        default: 'YES'
     }
 }, {
     timestamps: true

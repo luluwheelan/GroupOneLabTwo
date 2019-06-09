@@ -1,7 +1,7 @@
-const Book = require('../models/book');
+const book = require('../models/book');
 
 exports.index = (req, res) => {
-    Book.find()
+    book.find()
     .then(books => {
         //deliever the data to the view
         res.render('books/index', {
@@ -15,8 +15,8 @@ exports.index = (req, res) => {
 };
 
 exports.show = (req, res) => {
-    Book.findById(req.params.id)
-    .then(blog => {
+    book.findById(req.params.id)
+    .then(book => {
         res.render('books/show', {
             book: book,
             title: book.title
@@ -29,17 +29,17 @@ exports.show = (req, res) => {
 
 exports.new = (req, res) => {
     res.render('books/new', {
-        title: 'New Book Post'
+        title: 'New book Post'
     });
 };
 
 //edit and show almost the some, they use same form
 exports.edit = (req, res) => {
-    Book.findById(req.params.id)
+    book.findById(req.params.id)
     .then(book => {
         res.render('books/edit', {
             book: book,
-            title: books.title
+            title: book.title
         });
     })
     .catch(err => {
@@ -48,12 +48,12 @@ exports.edit = (req, res) => {
 };
 
 exports.create = (req, res) => {
-    Book.create(
+    book.create(
         req.body.book
     //     {
-    //     title: req.body.blog.title,
-    //     content: req.body.blog.content,
-    //     status: req.body.blog.status
+    //     title: req.body.book.title,
+    //     content: req.body.book.content,
+    //     status: req.body.book.status
     // }
     )
     .then(() => {
@@ -66,7 +66,7 @@ exports.create = (req, res) => {
 };
 
 exports.update = (req, res) => {
-    Book.updateOne({
+    book.updateOne({
         _id: req.body.id
     }, req.body.book, {
         runValidators: true
@@ -80,7 +80,7 @@ exports.update = (req, res) => {
 };
 
 exports.destroy = (req, res) => {
-    Book.deleteOne({ 
+    book.deleteOne({ 
         _id: req.body.id
     })
     .then(() => {

@@ -2,8 +2,9 @@ extends ../layouts/main.pug
 block content
   .container
     header
-      h1= blog.title
-      small= blog.status.toLowerCase()
+      h1="Title: " + book.title
+      h3= "Author: " + book.author || "Author not know"
+      h2= "In Library: " + book.status
 
-    div
-      = blog.content || "Your story is processing..."
+      a(href='/books') Go to book list
+      

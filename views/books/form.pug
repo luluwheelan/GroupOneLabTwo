@@ -1,21 +1,20 @@
 
-form(action=(blog ? '/blogs/update' : '/blogs'), method="POST")
-  if blog
-    input(type="hidden", name="id", value=blog.id)
+form(action=(book ? '/books/update' : '/books'), method="POST")
+  if book
+    input(type="hidden", name="id", value=book.id)
   .form-group
     label Title
-    input.form-control(name="blog[title]", required, value=(blog ? blog.title : null)) 
+    input.form-control(name="book[title]", required, value=(book ? book.title : null)) 
 
   .form-group
-    label Content
-    textarea.form-control(name="blog[content]")
-      = blog ? blog.content : null
+    label Author
+    input.form-control(name="book[author]", required, value=(book ? book.author : null)) 
 
   .form-group
-    label Status
-    select.form-control(name="blog[status]", required)
-      each status in ['DRAFT', 'PUBLISHED']
-        option(value=status, selected=(blog && blog.status === status))= status.toLowerCase()
+    label In My Library
+    select.form-control(name="book[status]", required)
+      each status in ['YES', 'NOT']
+        option(value=status, selected=(book && book.status === status))= status.toLowerCase()
 
   .form-group
     button.btn.btn-dark(type="submit") Submit
