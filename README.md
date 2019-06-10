@@ -1,2 +1,2 @@
-# comp-2068-thursday
-A blogging platform 
+Find this online version at: https://grouponelabtwo.herokuapp.com
+
