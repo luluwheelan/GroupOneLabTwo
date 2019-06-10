@@ -4,11 +4,11 @@ form(action=(book ? '/books/update' : '/books'), method="POST")
     input(type="hidden", name="id", value=book.id)
   .form-group
     label Title
-    input.form-control(name="book[title]", required, value=(book ? book.title : null)) 
+    input.form-control(name="book[title]", required, value=(book ? book.title : "")) 
 
   .form-group
     label Author
-    input.form-control(name="book[author]", required, value=(book ? book.author : null)) 
+    input.form-control(name="book[author]", required, value=(book ? book.author : "")) 
 
   .form-group
     label In My Library
